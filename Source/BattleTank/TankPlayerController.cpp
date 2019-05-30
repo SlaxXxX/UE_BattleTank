@@ -2,7 +2,7 @@
 
 #include "TankPlayerController.h"
 
-ATank* ATankPlayerController::GetControlledTank() const
-{
-	return Cast<ATank>
-}
+//ATank* ATankPlayerController::GetControlledTank() const
+//{
+//	return Cast<ATank>
+//}

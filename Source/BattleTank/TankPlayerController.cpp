@@ -2,7 +2,22 @@
 
 #include "TankPlayerController.h"
 
-//ATank* ATankPlayerController::GetControlledTank() const
-//{
-//	return Cast<ATank>
-//}
+void ATankPlayerController::BeginPlay()
+{
+	Super::BeginPlay();
+	GetControlledTank();
+}
+
+ATank* ATankPlayerController::GetControlledTank() const
+{
+	const auto Tank = Cast<ATank>(GetPawn());
+	if (Tank)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Player reporting for dooty, equipped %s"), *Tank->GetName());
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Player reporting for dooty, where me tank at?"));
+	}
+	return Tank;
+}

@@ -22,13 +22,19 @@ void ATank::BeginPlay()
 void ATank::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	RotateTowardsAimLocation(DeltaTime);
 }
 
 // Called to bind functionality to input
 void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+}
+
+void ATank::RotateTowardsAimLocation(float DeltaTime)
+{
+	if (!AimLocation) { return; }
 
 }
 

@@ -8,6 +8,11 @@ void ATankPlayerController::BeginPlay()
 	GetControlledTank();
 }
 
+void ATankPlayerController::Tick(float DeltaSeconds)
+{
+
+}
+
 ATank* ATankPlayerController::GetControlledTank() const
 {
 	const auto Tank = Cast<ATank>(GetPawn());
@@ -20,4 +25,11 @@ ATank* ATankPlayerController::GetControlledTank() const
 		UE_LOG(LogTemp, Warning, TEXT("Player reporting for dooty, where me tank at?"));
 	}
 	return Tank;
+}
+
+void ATankPlayerController::FindAimLocation()
+{
+	if (!GetControlledTank()) { return; }
+
+
 }

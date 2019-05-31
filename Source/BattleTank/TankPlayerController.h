@@ -19,5 +19,7 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 
 private:
 	void BeginPlay() override;
+	void Tick(float DeltaSeconds) override;
 	ATank* GetControlledTank() const;
+	void FindAimLocation();
 };

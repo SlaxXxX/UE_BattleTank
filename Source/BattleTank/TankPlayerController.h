@@ -20,6 +20,15 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 private:
 	void BeginPlay() override;
 	void Tick(float DeltaSeconds) override;
-	ATank* GetControlledTank() const;
 	void FindAimLocation();
+	bool GetSightRayHitLocation(FVector& OutHitLocation) const;
+
+	UPROPERTY(EditAnywhere)
+		float HitScanDistance = 100000.0;
+	UPROPERTY(EditAnywhere)
+		float CrossHairXPercent = 0.5;
+	UPROPERTY(EditAnywhere)
+		float CrossHairYPercent = 0.5;
+
+	ATank* ControlledTank;
 };

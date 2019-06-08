@@ -8,34 +8,32 @@
 void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
-	GetControlledTank();
-	GetPlayerControlledTank();
+	FindMyTanks();
+	if (ControlledTank && PlayerControlledTank)
+	{
+		ControlledTank->AimAt(PlayerControlledTank->GetActorLocation());
+	}
 }
 
-ATank* ATankAIController::GetControlledTank() const
+void ATankAIController::FindMyTanks()
 {
-	auto Tank = Cast<ATank>(GetPawn());
-	if (Tank)
+	ControlledTank = Cast<ATank>(GetPawn());
+	if (ControlledTank)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("AI reporting for dooty, equipped %s"), *Tank->GetName());
+		UE_LOG(LogTemp, Warning, TEXT("AI reporting for dooty, equipped %s"), *ControlledTank->GetName());
 	}
 	else
 	{
 		UE_LOG(LogTemp, Warning, TEXT("AI reporting for dooty, lost my tank tho.."));
 	}
-	return Tank;
-}
 
-ATank* ATankAIController::GetPlayerControlledTank() const
-{
-	const auto PlayerPawn = Cast<ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
-	if (PlayerPawn)
+	PlayerControlledTank = Cast<ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
+	if (PlayerControlledTank)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("AI now aiming on %s"), *PlayerPawn->GetName());
+		UE_LOG(LogTemp, Warning, TEXT("AI now aiming on %s"), *PlayerControlledTank->GetName());
 	}
 	else
 	{
 		UE_LOG(LogTemp, Warning, TEXT("AI lost the Player in the fog"));
 	}
-	return PlayerPawn;
 }

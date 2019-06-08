@@ -28,7 +28,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable, Category = Setup)
-		void SetBarrelReference(UStaticMeshComponent* Barrel)
+		void SetBarrelReference(class UTankBarrel* Barrel)
 	{
 		AimingComponent->SetBarrelReference(Barrel);
 	}

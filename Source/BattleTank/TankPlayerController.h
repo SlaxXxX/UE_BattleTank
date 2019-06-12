@@ -4,8 +4,6 @@
 
 #include "CoreMinimal.h"
 
-#include "Tank.h"
-
 #include "GameFramework/PlayerController.h"
 #include "TankPlayerController.generated.h"
 
@@ -30,5 +28,5 @@ private:
 	UPROPERTY(EditAnywhere)
 		float CrossHairYPercent = 0.5;
 
-	ATank* ControlledTank;
+	class ATank* ControlledTank;
 };

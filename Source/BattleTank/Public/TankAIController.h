@@ -4,8 +4,6 @@
 
 #include "CoreMinimal.h"
 
-#include "Tank.h"
-
 #include "AIController.h"
 #include "TankAIController.generated.h"
 
@@ -20,6 +18,6 @@ class BATTLETANK_API ATankAIController : public AAIController
 private:
 	void BeginPlay() override;
 	void FindMyTanks();
-	ATank* ControlledTank;
+	class ATank* ControlledTank;
 	ATank* PlayerControlledTank;
 };

@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 
 #include "Public/TankAimingComponent.h"
-
 #include "GameFramework/Pawn.h"
 #include "Tank.generated.h"
 
@@ -34,7 +33,7 @@ public:
 	}
 
 	UPROPERTY(EditAnywhere, Category = Firing)
-		float LaunchSpeed = 100000;
+		float LaunchSpeed = 4000;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;

@@ -32,6 +32,12 @@ public:
 		AimingComponent->SetBarrelReference(Barrel);
 	}
 
+	UFUNCTION(BlueprintCallable, Category = Setup)
+		void SetTurretReference(class UTankTurret* Turret)
+	{
+		AimingComponent->SetTurretReference(Turret);
+	}
+
 	UPROPERTY(EditAnywhere, Category = Firing)
 		float LaunchSpeed = 4000;
 

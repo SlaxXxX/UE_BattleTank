@@ -24,11 +24,16 @@ public:
 		this->Barrel = Barrel;
 	}
 
+	void SetTurretReference(class UTankTurret* Turret)
+	{
+		this->Turret = Turret;
+	}
+
 	void AimAt(FVector Location, float LaunchSpeed);
 
 private:
 
-
 	FVector AimDirection;
 	UTankBarrel* Barrel = nullptr;
+	UTankTurret* Turret = nullptr;
 };

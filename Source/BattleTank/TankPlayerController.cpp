@@ -51,7 +51,10 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& OutHitLocation) cons
 	if (DeprojectScreenPositionToWorld(WidgetLocationX, WidgetLocationY, WorldLocation, WorldDirection))
 	{
 		FHitResult HitResult;
-		GetWorld()->LineTraceSingleByChannel(HitResult, WorldLocation, WorldLocation + WorldDirection * HitScanDistance, ECollisionChannel::ECC_Visibility);
+		FCollisionQueryParams CollisionParameters = FCollisionQueryParams();
+		CollisionParameters.AddIgnoredActor(ControlledTank);
+
+		GetWorld()->LineTraceSingleByChannel(HitResult, WorldLocation, WorldLocation + WorldDirection * HitScanDistance, ECollisionChannel::ECC_Visibility, CollisionParameters);
 
 		OutHitLocation = HitResult.Location;
 		return HitResult.IsValidBlockingHit();

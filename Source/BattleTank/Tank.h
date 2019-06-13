@@ -38,6 +38,9 @@ public:
 		AimingComponent->SetTurretReference(Turret);
 	}
 
+	UFUNCTION(BlueprintCallable, Category = InputProcessing)
+		void Fire();
+
 	UPROPERTY(EditAnywhere, Category = Firing)
 		float LaunchSpeed = 4000;
 

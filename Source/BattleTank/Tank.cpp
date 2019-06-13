@@ -26,6 +26,11 @@ void ATank::Tick(float DeltaTime)
 	AimingComponent->MoveTurretToAim(DeltaTime);
 }
 
+void ATank::Fire()
+{
+
+}
+
 // Called to bind functionality to input
 void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {

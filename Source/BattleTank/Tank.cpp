@@ -3,10 +3,15 @@
 
 #include "Tank.h"
 
+#include "public/TankBarrel.h"
+#include "public/Projectile.h"
+#include "Engine/StaticMeshSocket.h"
+
+
 // Sets default values
 ATank::ATank()
 {
- 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	AimingComponent = CreateDefaultSubobject<UTankAimingComponent>(FName("Aiming Component"));
@@ -16,7 +21,7 @@ ATank::ATank()
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 }
 
 // Called every frame
@@ -28,7 +33,7 @@ void ATank::Tick(float DeltaTime)
 
 void ATank::Fire()
 {
-
+	GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint, Barrel->GetSocketTransform(FName("Projectile")));
 }
 
 // Called to bind functionality to input

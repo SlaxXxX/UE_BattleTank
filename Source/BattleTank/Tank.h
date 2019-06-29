@@ -22,6 +22,9 @@ protected:
 	virtual void BeginPlay() override;
 	UTankAimingComponent* AimingComponent = nullptr;
 
+private:
+	class UTankBarrel* Barrel;
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -29,6 +32,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Setup)
 		void SetBarrelReference(class UTankBarrel* Barrel)
 	{
+		this->Barrel = Barrel;
 		AimingComponent->SetBarrelReference(Barrel);
 	}
 
@@ -43,6 +47,9 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = Firing)
 		float LaunchSpeed = 4000;
+
+	UPROPERTY(EditAnywhere, Category = Setup)
+		TSubclassOf<class AProjectile> ProjectileBlueprint;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;

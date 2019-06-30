@@ -10,10 +10,15 @@ void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
 	FindMyTanks();
-	if (ControlledTank && PlayerControlledTank)
-	{
-		ControlledTank->AimAt(PlayerControlledTank->GetActorLocation());
-	}
+}
+
+void ATankAIController::Tick(float DeltaSeconds)
+{
+	if (!ControlledTank || !PlayerControlledTank)
+		return;
+
+	ControlledTank->Fire();
+	ControlledTank->AimAt(PlayerControlledTank->GetActorLocation());
 }
 
 void ATankAIController::FindMyTanks()

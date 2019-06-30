@@ -25,6 +25,9 @@ protected:
 private:
 	class UTankBarrel* Barrel;
 
+	double LastFireTime = 0;
+	float ReloadTimeSec = 5;
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -45,11 +48,11 @@ public:
 	UFUNCTION(BlueprintCallable, Category = InputProcessing)
 		void Fire();
 
-	UPROPERTY(EditAnywhere, Category = Firing)
-		float LaunchSpeed = 4000;
-
 	UPROPERTY(EditAnywhere, Category = Setup)
 		TSubclassOf<class AProjectile> ProjectileBlueprint;
+
+	UPROPERTY(EditAnywhere, Category = Firing)
+		float LaunchSpeed = 4000;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;

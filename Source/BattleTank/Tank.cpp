@@ -33,7 +33,16 @@ void ATank::Tick(float DeltaTime)
 
 void ATank::Fire()
 {
-	GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint, Barrel->GetSocketTransform(FName("Projectile")));
+	if (!ProjectileBlueprint || !Barrel)
+		return;
+
+	bool isReloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeSec;
+
+	if (isReloaded) {
+		AProjectile* Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint, Barrel->GetSocketTransform(FName("Projectile")));
+		Projectile->Launch(LaunchSpeed);
+		LastFireTime = FPlatformTime::Seconds();
+	}
 }
 
 // Called to bind functionality to input

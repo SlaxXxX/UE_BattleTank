@@ -48,10 +48,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = InputProcessing)
 		void Fire();
 
-	UPROPERTY(EditAnywhere, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
 		TSubclassOf<class AProjectile> ProjectileBlueprint;
 
-	UPROPERTY(EditAnywhere, Category = Firing)
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
 		float LaunchSpeed = 4000;
 
 	// Called to bind functionality to input

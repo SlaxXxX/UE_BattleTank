@@ -19,11 +19,11 @@ public:
 	void Elevate(float DeltaTime, float Degrees);
 
 private:
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 		float MaxDegreesPerSecond = 5.0;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 		float MaxElevationDegree = 40.0;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 		float MinElevationDegree = 0.0;
 
 };

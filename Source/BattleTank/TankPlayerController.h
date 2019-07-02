@@ -21,11 +21,11 @@ private:
 	void FindAimLocation();
 	bool GetSightRayHitLocation(FVector& OutHitLocation) const;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 		float HitScanDistance = 100000.0;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 		float CrossHairXPercent = 0.5;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 		float CrossHairYPercent = 0.5;
 
 	class ATank* ControlledTank;
